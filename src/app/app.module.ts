@@ -22,7 +22,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CatDetailsComponent } from './cat-details/cat-details.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import { CardListComponent } from './card-list/card-list.component';
-
+ 
 
 @NgModule({
   
