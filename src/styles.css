@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.name-text{
+    font-weight: lighter;
+    font-size:29px;
+}
+
+h1{
+    font-family: Roboto;
+    font-weight: lighter;
+    margin-left: 20px;
+}
+
+mat-icon{
+    margin-bottom: 4px;
+}
+.icon {
+    padding: 0 14px;
+}
+  
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: unset;
+    align-items: center;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+router-outlet + *  {
+    padding: 0 16px;
+  }
+
+  .card {
+    max-width:700px;
+    margin: auto;
+    box-shadow: 5px 20px 50px 5px rgba(128, 128, 128, 0.541);
+    border: solid rgb(192, 192, 192) 1px;
+    
+  }
+  
+  .cat-header-image {
+    background-image: url('https://peopledotcom.files.wordpress.com/2019/04/julian-assange-cat.jpg');
+    background-size: cover;
+  }
+  .settings-text{
+    display: inline-block;
+    align-items: center;
+  }
+  .settings-content{
+    align-content: center;
+    align-items: center;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
