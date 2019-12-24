@@ -1,6 +1,6 @@
 
-<div *ngFor="let cat of cats">
-<app-cat-card [mainImage]="cat.mainImage" [title]="cat.title" [subtitle]="cat.subtitle" [description]="cat.description" (click)="onClick(cat)"></app-cat-card>
+<div *ngFor="let cat of cats" >
+<app-cat-card  style="margin: auto;" [mainImage]="cat.mainImage" [title]="cat.title" [subtitle]="cat.subtitle" [description]="cat.description" (click)="onClick(cat)"></app-cat-card>
 </div>
 
 

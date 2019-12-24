@@ -63,3 +63,8 @@ router-outlet + *  {
     flex-direction: row;
     justify-content: space-between;
   }
+  app-cat-card{
+    
+    display: contents;
+    
+  }
