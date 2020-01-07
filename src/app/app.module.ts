@@ -60,7 +60,7 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     CardListComponent
   ],
   providers: [],
-  entryComponents: [CatDetailsComponent, CatCardComponent],
+  entryComponents: [CatDetailsComponent, CatCardComponent,CardListComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
