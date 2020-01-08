@@ -5,6 +5,8 @@ import { Component, OnInit, Inject ,Input} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatInputModule } from '@angular/material';
 import { MatDialog } from '@angular/material';
 import { CatstagramApiService } from './../catstagram-api.service';
+import {DomSanitizer} from '@angular/platform-browser';
+import {MatIconRegistry} from '@angular/material/icon';
 
 
 
@@ -20,8 +22,17 @@ export class CatCardComponent implements OnInit {
   @Input() title:string;
   @Input() subtitle:string;
   @Input() description:string;
+  disabled:string;
+  numLikes:number;
   
-  constructor(public dialog: MatDialog){
+  
+  constructor(public dialog: MatDialog,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer){
+    this.numLikes=0;
+    this.disabled="false";
+    
+    iconRegistry.addSvgIcon(
+      'thumbs-up',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/thumbup-icon.svg'));
     
   }
  
@@ -38,6 +49,17 @@ export class CatCardComponent implements OnInit {
       // // this.animal = result;
     });
 
+    }
+    numberOfLikes(){
+      this.numLikes=this.numLikes+1;
+      this.disabled="true";
+
+      
+      return this.numLikes;
+
+     
+      
+     
     }
     ngOnInit() {
 

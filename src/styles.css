@@ -68,3 +68,11 @@ router-outlet + *  {
     display: contents;
     
   }
+  .like-icon{
+    color: rgba(0, 0, 0, 0.548);
+    margin-left: 2px;
+  }
+  .likes{
+    color:black;
+    margin-bottom: 10px;
+  }
