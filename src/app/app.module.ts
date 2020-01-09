@@ -22,7 +22,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CatDetailsComponent } from './cat-details/cat-details.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import { CardListComponent } from './card-list/card-list.component';
-import { MatFormFieldModule, MatInputModule } from '@angular/material'; 
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
+ 
 
 @NgModule({
   
@@ -58,6 +59,7 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     ToolbarComponent,
     CatDetailsComponent,
     CardListComponent
+    
   ],
   providers: [],
   entryComponents: [CatDetailsComponent, CatCardComponent,CardListComponent],

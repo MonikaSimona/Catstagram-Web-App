@@ -3,8 +3,7 @@ import { Component, OnInit, Inject,Input,Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 export interface DialogData {
- 
- clickedPost: Cats;
+  clickedPost: Cats;
 }
 @Component({
   selector: 'app-cat-details',
@@ -14,7 +13,7 @@ export interface DialogData {
 export class CatDetailsComponent implements OnInit {
  
   postComments: PostComments[] = [];
- newComment: PostComments;
+  newComment: PostComments;
   constructor(
     public dialogRef: MatDialogRef<CatDetailsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,

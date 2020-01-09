@@ -43,7 +43,8 @@ export class CardListComponent implements OnInit {
     //   }
     // ];
 
-     this.apiService.getPosts().subscribe((receivedPosts)=>{this.cats = receivedPosts;});
+     this.apiService.getPosts().subscribe((receivedPosts)=>{
+       this.cats = receivedPosts;});
 
    }
    onClick(cat:Cats){

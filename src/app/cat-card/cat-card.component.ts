@@ -16,17 +16,24 @@ import {MatIconRegistry} from '@angular/material/icon';
   styleUrls: ['./cat-card.component.css']
 })
 export class CatCardComponent implements OnInit {
-  cats:Cats[] = [];
+  cats:Cats[]=[];
   @Input() id: number;
   @Input() mainImage:string;
   @Input() title:string;
   @Input() subtitle:string;
   @Input() description:string;
+  @Input() cat:Cats[]=[];
+  
+  
   disabled:string;
   numLikes:number;
   
   
-  constructor(public dialog: MatDialog,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer){
+  constructor(public dialog: MatDialog,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,
+    private apiService: CatstagramApiService,
+    
+    
+    ){
     this.numLikes=0;
     this.disabled="false";
     
@@ -34,14 +41,17 @@ export class CatCardComponent implements OnInit {
       'thumbs-up',
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/thumbup-icon.svg'));
     
+      this.apiService.getPosts().subscribe((receivedPosts)=>{
+        this.cat = receivedPosts;
+      });
   }
  
-  onClick(cats:Cats){
+  onClick(cat:Cats){
     const dialogRef = this.dialog.open(CatDetailsComponent,
      {
      width: '750px',
      height: '700px',
-     data: {clickedPost:cats}
+     data: {clickedPost:cat}
      });
 
      dialogRef.afterClosed().subscribe(result => {
@@ -57,13 +67,12 @@ export class CatCardComponent implements OnInit {
       
       return this.numLikes;
 
-     
-      
-     
+    }
+    shareAlert(){
+      window.alert("The post has been shared!");
     }
     ngOnInit() {
-
-
+  
     }
 
 }

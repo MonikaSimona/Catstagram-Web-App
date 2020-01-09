@@ -1,6 +1,8 @@
 
 <div *ngFor="let cat of cats; index as id"  >
-<app-cat-card  style="margin: auto;" [mainImage]="cat.mainImage" [title]="cat.title" [subtitle]="cat.subtitle" [description]="cat.description" [id]="cat.id"></app-cat-card>
+<app-cat-card  style="margin: auto;" [mainImage]="cat.mainImage" [title]="cat.title" [subtitle]="cat.subtitle" [description]="cat.description" [routerLink]="['/cats',id]"></app-cat-card>
 </div>
+
+
 
 
