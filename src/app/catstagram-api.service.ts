@@ -7,6 +7,7 @@ import { Observable } from "rxjs";
   providedIn: 'root'
 })
 export class CatstagramApiService {
+  images = [];
  
 
   constructor(private http: HttpClient) { }
@@ -19,5 +20,13 @@ export class CatstagramApiService {
   }
   postComment(postId: number, comment: PostComments){
     return this.http.post(`http://5df115fd9df6fb00142bd818.mockapi.io/api/posts/${postId}/postComments`, comment);
+  }
+
+  saveImage(mainImage){
+    
+    this.images.push(mainImage);
+  }
+  getImages(){
+    return this.images;
   }
 }

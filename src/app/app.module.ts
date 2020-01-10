@@ -23,6 +23,10 @@ import { CatDetailsComponent } from './cat-details/cat-details.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import { CardListComponent } from './card-list/card-list.component';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import Swal from 'sweetalert2';
+import { SavedImagesComponent } from './saved-images/saved-images.component';
+
+
  
 
 @NgModule({
@@ -46,8 +50,8 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     RouterModule.forRoot([
       { path: '',component:CardListComponent},
       { path: 'cat-card', component: CatCardComponent},
-      { path: 'settings', component: SettingsComponent}
-      
+      { path: 'settings', component: SettingsComponent},
+      { path: 'saved-images', component: SavedImagesComponent}
       
     ]),
     BrowserAnimationsModule,
@@ -58,7 +62,8 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     SettingsComponent,
     ToolbarComponent,
     CatDetailsComponent,
-    CardListComponent
+    CardListComponent,
+    SavedImagesComponent
     
   ],
   providers: [],

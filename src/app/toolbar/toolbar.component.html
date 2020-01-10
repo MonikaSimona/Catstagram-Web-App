@@ -4,11 +4,18 @@
     <a [routerLink]="['/']"> <span><mat-icon aria-hidden="false" aria-label="Cat icon" svgIcon="paw-print"></mat-icon> &nbsp; | Catstagram </span></a>
   <span class="spacer"></span>
   
+  <a routerLink="/saved-images">
+  <button mat-icon-button aria-label="Collected images">  
+    <mat-icon>collections</mat-icon>
+  </button>
+  </a>
+
   <a routerLink="/settings">
-  <button mat-icon-button aria-label="Example icon-button with a heart icon">  
+  <button mat-icon-button aria-label="Settings icon">  
     <mat-icon>settings</mat-icon>
   </button>
   </a>
+  
   
   </mat-toolbar-row>
   </mat-toolbar>

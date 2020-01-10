@@ -7,6 +7,12 @@ import { MatDialog } from '@angular/material';
 import { CatstagramApiService } from './../catstagram-api.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
+import * as _swal from 'sweetalert';
+
+
+import Swal from 'sweetalert2';
+
+
 
 
 
@@ -68,8 +74,17 @@ export class CatCardComponent implements OnInit {
       return this.numLikes;
 
     }
-    shareAlert(){
-      window.alert("The post has been shared!");
+    saveImage(){
+      Swal.fire({
+        text:"Saved!",
+        padding:50,
+        width:400,
+        
+        timer:900,
+        showConfirmButton:false,
+        heightAuto:false
+      });
+      this.apiService.saveImage(this.mainImage);
     }
     ngOnInit() {
   
