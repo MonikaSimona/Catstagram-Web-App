@@ -1,3 +1,4 @@
+
 import { cats } from './../../registered-cats';
 import { CatDetailsComponent } from './../cat-details/cat-details.component';
 import { Component, OnInit, Inject ,Input} from '@angular/core';
@@ -38,9 +39,9 @@ export class CatCardComponent implements OnInit {
   constructor(public dialog: MatDialog,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,
     private apiService: CatstagramApiService,
     
-    
     ){
-    this.numLikes=0;
+      this.cats=this.cat;
+   
     this.disabled="false";
     
     iconRegistry.addSvgIcon(
@@ -52,12 +53,12 @@ export class CatCardComponent implements OnInit {
       });
   }
  
-  onClick(cat:Cats){
+  onClick(cats){
     const dialogRef = this.dialog.open(CatDetailsComponent,
      {
      width: '750px',
      height: '700px',
-     data: {clickedPost:cat}
+     data: {clickedPost:cats}
      });
 
      dialogRef.afterClosed().subscribe(result => {
@@ -67,26 +68,30 @@ export class CatCardComponent implements OnInit {
 
     }
     numberOfLikes(){
-      this.numLikes=this.numLikes+1;
+
+      this.numLikes = 0;
+      this.apiService.saveLikes(this.numLikes);
+      this.numLikes = this.apiService.getLikes();
+
       this.disabled="true";
-
       
-      return this.numLikes;
-
     }
+
     saveImage(){
+
       Swal.fire({
         text:"Saved!",
         padding:50,
         width:400,
-        
         timer:900,
         showConfirmButton:false,
         heightAuto:false
       });
+
       this.apiService.saveImage(this.mainImage);
     }
     ngOnInit() {
+      
   
     }
 

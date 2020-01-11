@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 })
 export class CatstagramApiService {
   images = [];
- 
+  likes = [];
 
   constructor(private http: HttpClient) { }
 
@@ -29,4 +29,14 @@ export class CatstagramApiService {
   getImages(){
     return this.images;
   }
+ 
+  saveLikes(like){
+    this.likes.push(like);
+  }
+  getLikes(){
+    
+    
+    return this.likes[this.likes.length-1]+1;
+  }
+
 }

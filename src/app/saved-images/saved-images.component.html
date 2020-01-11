@@ -1,3 +1,8 @@
-<div  *ngFor="let image of images">
- <img class="savedImage" [src]="image" alt="Photo of a Selfie Cat" >
-</div>
+<h1>
+    Saved Images
+</h1>
+<br>
+<br>
+
+ <img *ngFor="let image of images" class="savedImage" [src]="image" alt="Photo of a Selfie Cat" >
+

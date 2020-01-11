@@ -1,3 +1,4 @@
+import { cats } from 'src/registered-cats';
 import { CatstagramApiService } from './../catstagram-api.service';
 import { Component, OnInit, Inject,Input,Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';

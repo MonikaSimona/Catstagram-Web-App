@@ -98,14 +98,13 @@ router-outlet + *  {
   }
   .savedImage{
     max-width: 1000px;
+    max-height: 1200px;
     box-shadow:  5px 20px 50px 5px rgba(128, 128, 128, 0.541);
-   
-    
     top: 200px;
     margin: 20px;
     align-content: center;
     align-items: center;
     justify-content: space-between;
-    display: flex;
+    display: inline;
     flex-direction: row;
   }
