@@ -108,3 +108,9 @@ router-outlet + *  {
     display: inline;
     flex-direction: row;
   }
+  mat-checkbox{
+    margin-right: 15px;
+    
+    
+
+  }

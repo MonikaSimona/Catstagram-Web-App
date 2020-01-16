@@ -23,6 +23,7 @@ import { CatDetailsComponent } from './cat-details/cat-details.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import { CardListComponent } from './card-list/card-list.component';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import Swal from 'sweetalert2';
 import { SavedImagesComponent } from './saved-images/saved-images.component';
 
@@ -46,6 +47,7 @@ import { SavedImagesComponent } from './saved-images/saved-images.component';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCheckboxModule,
     FormsModule,
     RouterModule.forRoot([
       { path: '',component:CardListComponent},
