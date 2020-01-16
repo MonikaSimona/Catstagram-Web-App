@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 })
 export class CatstagramApiService {
   images = [];
-  likes = [];
+  //likes = [];
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +21,12 @@ export class CatstagramApiService {
   postComment(postId: number, comment: PostComments){
     return this.http.post(`http://5df115fd9df6fb00142bd818.mockapi.io/api/posts/${postId}/postComments`, comment);
   }
+  updatePost(post:Cats,postId:number){
+    
+    return this.http.post(`http://5e00dea0685ac80014514fa8.mockapi.io/api/cats/posts/${postId}`,post);
+
+  }
+  
 
   saveImage(mainImage){
     
@@ -30,13 +36,13 @@ export class CatstagramApiService {
     return this.images;
   }
  
-  saveLikes(like){
-    this.likes.push(like);
-  }
-  getLikes(){
+  // saveLikes(like){
+  //   this.likes.push(like);
+  // }
+  // getLikes(){
     
     
-    return this.likes[this.likes.length-1]+1;
-  }
+  //   return this.likes[this.likes.length-1]+1;
+  // }
 
 }

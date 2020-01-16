@@ -1,7 +1,7 @@
 import { CatstagramApiService } from './../catstagram-api.service';
 import { CatDetailsComponent } from './../cat-details/cat-details.component';
 import { Component, OnInit, Inject ,Input} from '@angular/core';
-import { cats } from 'src/registered-cats'
+
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { MatDialog } from '@angular/material';
 
@@ -57,7 +57,7 @@ export class CardListComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
-        // // this.animal = result;
+        
       });
    }
 
