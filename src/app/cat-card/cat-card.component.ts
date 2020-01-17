@@ -1,7 +1,7 @@
 
 import { cats } from './../../registered-cats';
 import { CatDetailsComponent } from './../cat-details/cat-details.component';
-import { Component, OnInit, Inject ,Input} from '@angular/core';
+import { Component, OnInit, Inject, Input, Output } from '@angular/core';
 
 import { MatDialogRef, MAT_DIALOG_DATA, MatInputModule } from '@angular/material';
 import { MatDialog } from '@angular/material';
@@ -23,8 +23,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./cat-card.component.css']
 })
 export class CatCardComponent implements OnInit {
-  //cats:Cats[]=[];
+  cats:Cats[]=[];
   @Input() id: number;
+  // @Output() id:number;
   @Input() mainImage:string;
   @Input() headerImage:string;
   @Input() title:string;
@@ -37,11 +38,12 @@ export class CatCardComponent implements OnInit {
   disabled:string;
   numLikes:number;
   
-  
+ 
   constructor(public dialog: MatDialog,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,
     private apiService: CatstagramApiService,
     
     ){
+      
       this.cat=this.cat;
    
     this.disabled="false";
@@ -49,18 +51,20 @@ export class CatCardComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'thumbs-up',
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/thumbup-icon.svg'));
-    
+     
       this.apiService.getPosts().subscribe((receivedPosts)=>{
         this.cat = receivedPosts;
+        // console.log(this.cat[this.id]);
+        // console.log(this.id)
       });
   }
- 
-  onClick(cats){
+  
+  onClick(cat:Cats){
     const dialogRef = this.dialog.open(CatDetailsComponent,
      {
      width: '750px',
      height: '700px',
-     data: {clickedPost:cats}
+     data: {clickedPost:cat}
      });
 
      dialogRef.afterClosed().subscribe(result => {
@@ -116,6 +120,7 @@ export class CatCardComponent implements OnInit {
       this.apiService.saveImage(this.mainImage);
     }
     ngOnInit() {
+      
       
   
     }

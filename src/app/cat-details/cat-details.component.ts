@@ -1,7 +1,9 @@
+import { CardListComponent } from './../card-list/card-list.component';
 import { cats } from 'src/registered-cats';
 import { CatstagramApiService } from './../catstagram-api.service';
 import { Component, OnInit, Inject,Input,Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
 
 export interface DialogData {
   clickedPost: Cats;
@@ -12,6 +14,11 @@ export interface DialogData {
   styleUrls: ['./cat-details.component.css']
 })
 export class CatDetailsComponent implements OnInit {
+  
+  
+  @Input() mainImage:string;
+  @Input() id:number;
+  headerImage;
  
   postComments: PostComments[] = [];
   newComment: PostComments;
@@ -20,7 +27,9 @@ export class CatDetailsComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private apiService: CatstagramApiService
   ) {
+    
     this.newComment = {
+      
       id: this.data.clickedPost.id,
       accountName:'_catty_',
       comment : '',
@@ -54,20 +63,27 @@ export class CatDetailsComponent implements OnInit {
     
     // }
     // ];
-    this.apiService.getPostComments(this.data.clickedPost.id)
+    
+    // console.log(this.data.clickedPost[0].id);
+    // console.log(this.data.clickedPost[2].id)
+    console.log(this.data.clickedPost[0]);
+    console.log(this.id)
+    this.apiService.getPostComments(this.data.clickedPost[0].id)
     .subscribe((comments)=>{this.postComments = comments;});
 
 
    }
     onComment(){
 
-      this.apiService.postComment(this.data.clickedPost.id,this.newComment)
+      this.apiService.postComment(this.data.clickedPost[0].id,this.newComment)
       .subscribe(()=>{console.log("Posted new comment");});
 
       this.newComment.comment='';
       
     }
   ngOnInit() {
+    
+    
   }
 
 }

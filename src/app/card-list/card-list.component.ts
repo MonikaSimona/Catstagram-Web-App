@@ -42,19 +42,23 @@ export class CardListComponent implements OnInit {
     //     description: 'Thinkig about the next trouble of the day...' 
     //   }
     // ];
-
+    
      this.apiService.getPosts().subscribe((receivedPosts)=>{
-       this.cats = receivedPosts;});
-
+       this.cats = receivedPosts;
+      //  console.log(this.cats)
+      });
+      
    }
+   
    onClick(cat:Cats){
+    
      const dialogRef = this.dialog.open(CatDetailsComponent,
       {
       width: '750px',
       height: '700px',
       data: {clickedPost:cat}
       });
-
+     
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
         
@@ -62,6 +66,8 @@ export class CardListComponent implements OnInit {
    }
 
   ngOnInit() {
+   
+   
   }
 
 }

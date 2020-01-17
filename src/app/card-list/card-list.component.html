@@ -6,8 +6,8 @@
 <br>
 <br>
 <br>
-<div *ngFor="let cat of cats; index as id"  >
-<app-cat-card  style="margin: auto;" [mainImage]="cat.mainImage" [title]="cat.title" [subtitle]="cat.subtitle" [description]="cat.description" [like]="cat.like" [routerLink]="['/cats',id]"></app-cat-card>
+<div *ngFor="let cat of cats; index as Id"  >
+<app-cat-card  style="margin: auto;" [mainImage]="cat.mainImage" [headerImage]="cat.headerImage" [title]="cat.title" [subtitle]="cat.subtitle" [description]="cat.description" [like]="cat.like" [id]="Id"></app-cat-card>
 </div>
 
 
