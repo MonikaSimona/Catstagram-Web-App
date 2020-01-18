@@ -13,9 +13,14 @@ export class AppComponent {
  
   title = 'feit-instagram-app';
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(iconRegistry: MatIconRegistry,iconRegistry2:MatIconRegistry, sanitizer: DomSanitizer,sanitizer2:DomSanitizer) {
     iconRegistry.addSvgIcon(
-        'paw-print',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/pawprint.svg'));
+        'paw-icon',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/iconPaw-01.svg'));
+
+    iconRegistry2.addSvgIcon(
+      'icon-dark', 
+        sanitizer2.bypassSecurityTrustResourceUrl('assets/icons/iconDark-01.svg'));
+        
   }
 }

@@ -16,7 +16,7 @@ export class CatstagramApiService {
     return this.http.get<Cats[]>("http://5e00dea0685ac80014514fa8.mockapi.io/api/cats/posts");
   }
   getPostComments(postId: number):Observable<PostComments[]>{
-    console.log(postId);
+    
     return this.http.get<PostComments[]>(`http://5df115fd9df6fb00142bd818.mockapi.io/api/posts/${postId}/postComments`);
   }
   postComment(postId: number, comment: PostComments){
@@ -25,7 +25,7 @@ export class CatstagramApiService {
   updatePost(post:Cats,postId:number){
     
     return this.http.put(`http://5e00dea0685ac80014514fa8.mockapi.io/api/cats/posts/${postId}`,post);
-
+    
   }
   
 

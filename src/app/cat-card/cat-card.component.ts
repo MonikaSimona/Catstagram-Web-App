@@ -43,14 +43,17 @@ export class CatCardComponent implements OnInit {
     private apiService: CatstagramApiService,
     
     ){
-      
+
       this.cat=this.cat;
-   
-    this.disabled="false";
+      this.disabled="false";
     
-    iconRegistry.addSvgIcon(
+      // iconRegistry.addSvgIcon(
+      //   'paw-print-black',
+      //   sanitizer.bypassSecurityTrustResourceUrl('assets/img/pawprint-black.svg'));
+
+      iconRegistry.addSvgIcon(
       'thumbs-up',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/thumbup-icon.svg'));
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/thumbup-icon.svg'));
      
       this.apiService.getPosts().subscribe((receivedPosts)=>{
         this.cat = receivedPosts;
@@ -62,7 +65,7 @@ export class CatCardComponent implements OnInit {
   onClick(cat:Cats){
     const dialogRef = this.dialog.open(CatDetailsComponent,
      {
-     width: '750px',
+     width: '1050px',
      height: '700px',
      data: {clickedPost:cat}
      });
@@ -100,7 +103,7 @@ export class CatCardComponent implements OnInit {
         "description":this.description,
         "like":this.like
       }
-      this.apiService.updatePost(post,this.id).subscribe((res)=>{
+      this.apiService.updatePost(post,this.cat[0].id).subscribe((res)=>{
         console.log("Post Updated.")
       });
     }

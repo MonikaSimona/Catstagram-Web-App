@@ -1,3 +1,4 @@
+
 import { CardListComponent } from './../card-list/card-list.component';
 import { cats } from 'src/registered-cats';
 import { CatstagramApiService } from './../catstagram-api.service';
@@ -6,6 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 
 export interface DialogData {
+  
   clickedPost: Cats;
 }
 @Component({
@@ -66,8 +68,10 @@ export class CatDetailsComponent implements OnInit {
     
     // console.log(this.data.clickedPost[0].id);
     // console.log(this.data.clickedPost[2].id)
-    console.log(this.data.clickedPost[0]);
-    console.log(this.id)
+    
+    console.log(this.data.clickedPost[0].id);
+   
+
     this.apiService.getPostComments(this.data.clickedPost[0].id)
     .subscribe((comments)=>{this.postComments = comments;});
 

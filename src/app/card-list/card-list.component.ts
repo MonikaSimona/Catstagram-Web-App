@@ -1,3 +1,4 @@
+import { cats } from './../../registered-cats';
 import { CatstagramApiService } from './../catstagram-api.service';
 import { CatDetailsComponent } from './../cat-details/cat-details.component';
 import { Component, OnInit, Inject ,Input} from '@angular/core';
@@ -12,6 +13,7 @@ import { MatDialog } from '@angular/material';
 })
 export class CardListComponent implements OnInit {
   cats:Cats[] = [];
+  
 
   
 
@@ -46,26 +48,28 @@ export class CardListComponent implements OnInit {
      this.apiService.getPosts().subscribe((receivedPosts)=>{
        this.cats = receivedPosts;
       //  console.log(this.cats)
+      
       });
       
    }
    
-   onClick(cat:Cats){
+  //  onClick(cat:Cats){
     
-     const dialogRef = this.dialog.open(CatDetailsComponent,
-      {
-      width: '750px',
-      height: '700px',
-      data: {clickedPost:cat}
-      });
+  //    const dialogRef = this.dialog.open(CatDetailsComponent,
+  //     {
+  //     width: '750px',
+  //     height: '700px',
+  //     data: {clickedPost:cat}
+  //     });
      
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
+  //     dialogRef.afterClosed().subscribe(result => {
+  //       console.log('The dialog was closed');
         
-      });
-   }
+  //     });
+  //  }
 
   ngOnInit() {
+    
    
    
   }

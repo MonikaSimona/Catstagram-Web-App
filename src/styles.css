@@ -47,7 +47,7 @@ router-outlet + *  {
   }
 
   .card {
-    max-width:700px;
+    max-width:900px;
     margin: auto;
     box-shadow: 5px 20px 50px 5px rgba(128, 128, 128, 0.541);
     border: solid rgb(192, 192, 192) 1px;
@@ -111,6 +111,60 @@ router-outlet + *  {
   mat-checkbox{
     margin-right: 15px;
     
-    
-
   }
+  [data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+[data-title]:after {
+    content: attr(data-title);
+    background-color:rgb(241, 241, 241);
+    color: rgb(80, 79, 79);
+    font-size: 50%;
+    position: absolute;
+    padding: 1px 5px 2px 5px;
+    bottom: -1.6em;
+    left: 100%;
+    white-space: nowrap;
+    box-shadow: 1px 1px 3px #222222;
+    border-radius: 2px;
+    opacity: 0;
+    
+    z-index: 9999;
+    visibility: hidden;
+}
+[data-title] {
+  position:  fixed;
+}
+
+
+
+
+[left-title]:hover:after {
+  opacity: 1;
+  transition: all 0.1s ease 0.5s;
+  visibility: visible;
+}
+[left-title]:after {
+  content: attr(left-title);
+  background-color:rgb(241, 241, 241);
+  color: rgb(80, 79, 79);
+  font-size: 50%;
+  position:absolute;
+  padding: 1px 5px 2px 5px;
+  bottom: -1.6em;
+  right: 100%;
+  top: 50%;
+  white-space: nowrap;
+  box-shadow: 1px 1px 3px #222222;
+  border-radius: 2px;
+  opacity: 0;
+  
+  
+  z-index: 99999;
+  visibility: hidden;
+}
+[left-title] {
+position:sticky;
+}
