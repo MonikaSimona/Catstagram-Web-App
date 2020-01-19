@@ -3,7 +3,9 @@
 </h1>
 <br>
 <br>
-<div style="margin-left: 100px;">
- <img *ngFor="let image of images" class="savedImage" [src]="image.mainImage" (click)="delete(image)" title="Click Image to delete" >
+<p class="deleteImageText">Click image to delete</p>
+<div  style="margin-left: 100px;">
+    
+ <img  *ngFor="let image of images; let id = index" class="savedImage" [src]="image.mainImage" (click)="delete(image)" title="Click Image to delete"  >
  
 </div>

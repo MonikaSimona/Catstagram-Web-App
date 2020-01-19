@@ -5,6 +5,7 @@ class Cats{
     headerImage:string;
     mainImage:string;
     description:string;
+    like:number;
 }
 
 

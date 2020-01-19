@@ -1,4 +1,4 @@
-<img mat-card-image [src]="data.clickedPost[0].mainImage" alt="Photo of a cat" class="sizeImg2 float-left">
+<img mat-card-image [src]="data.clickedPost.mainImage" alt="Photo of a cat" class="sizeImg2 float-left">
 <div class="scroll">
 
 
@@ -16,8 +16,8 @@
 
 <div class="comment">
 
-<mat-form-field>
-  <input matInput placeholder="What's on your mind?" [(ngModel)]="newComment.comment" >
+<mat-form-field color="primary">
+  <input  matInput color="primary" placeholder="What's on your mind?" [(ngModel)]="newComment.comment" >
 </mat-form-field>
 <button mat-raised-button (click)="onComment()">Comment</button>
 </div>

@@ -5,7 +5,7 @@
       <mat-card-title >{{title}}</mat-card-title>
       <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]="mainImage" alt="Photo of a Selfie Cat" (click)="onClick(cat)">
+    <img mat-card-image [src]="mainImage" alt="Photo of a Selfie Cat" (click)="onClick(catPost)">
     <mat-card-content>
       <mat-icon class="like-icon" svgIcon="thumbs-up"></mat-icon> &nbsp;<span class="likes"> {{like}} </span> 
       <p>
@@ -18,7 +18,7 @@
       <button mat-button id={{id}} (click)="numberOfLikes()" [disabled]="disabled">LIKE</button>
       <button mat-button (click)="saveImage()">SAVE</button>
       
-      <mat-icon  style="background-color: #f44336; border-radius: 3px; opacity: 60%; margin-left: 880px;  display: inline-block;" aria-hidden="false" aria-label="Cat icon" svgIcon="icon-dark"></mat-icon>
+      <mat-icon  style="background-color: #f44336; border-radius: 3px; opacity: 60%; margin-left: 690px;  display: inline-block;" aria-hidden="false" aria-label="Cat icon" svgIcon="icon-dark"></mat-icon>
     </mat-card-actions>
   </mat-card>
 <br>

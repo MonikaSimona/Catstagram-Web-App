@@ -7,7 +7,7 @@
 <br>
 <br>
 <div *ngFor="let cat of cats; index as Id"  >
-<app-cat-card  style="margin: auto;" [mainImage]="cat.mainImage" [headerImage]="cat.headerImage" [title]="cat.title" [subtitle]="cat.subtitle" [description]="cat.description" [like]="cat.like" [id]="Id"></app-cat-card>
+<app-cat-card  style="margin: auto;" [mainImage]="cat.mainImage" [headerImage]="cat.headerImage" [title]="cat.title" [subtitle]="cat.subtitle" [description]="cat.description" [like]="cat.like" [id]="Id" [catPost]="cat"></app-cat-card>
 </div>
 
 

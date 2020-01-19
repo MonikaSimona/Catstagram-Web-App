@@ -13,6 +13,7 @@ import { MatDialog } from '@angular/material';
 })
 export class CardListComponent implements OnInit {
   cats:Cats[]=[];
+ 
   
 
   
@@ -45,11 +46,20 @@ export class CardListComponent implements OnInit {
     //   }
     // ];
     
-     this.apiService.getPosts().subscribe((receivedPosts)=>{
-       this.cats = receivedPosts;
+    //  this.apiService.getPosts().subscribe((receivedPosts)=>{
+    //    this.cats = receivedPosts;
       //  console.log(this.cats)
       
-      });
+      // });
+      this.getPosts();
+      
+      
+   }
+
+   getPosts(){
+    this.apiService.getPosts().subscribe((receivedPosts)=>{
+      this.cats = receivedPosts;
+    });
       
    }
    
@@ -70,7 +80,7 @@ export class CardListComponent implements OnInit {
 
   ngOnInit() {
     
-   
+    
    
   }
 

@@ -1,6 +1,4 @@
-import { CardListComponent } from './../card-list/card-list.component';
-
-import { cats } from './../../registered-cats';
+import { cats } from 'src/registered-cats';
 import { CatDetailsComponent } from './../cat-details/cat-details.component';
 import { Component, OnInit, Inject, Input, Output } from '@angular/core';
 
@@ -11,7 +9,6 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
 
 import * as _swal from 'sweetalert';
-
 
 import Swal from 'sweetalert2';
 
@@ -25,7 +22,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./cat-card.component.css']
 })
 export class CatCardComponent implements OnInit {
-  cats:Cats[]=[];
+  //cats:Cats[]=[];
   
   
   @Input() id: number;
@@ -36,7 +33,7 @@ export class CatCardComponent implements OnInit {
   @Input() subtitle:string;
   @Input() description:string;
   @Input() like:number;
-  @Input() cat:Cats[]=[];
+  
   
   imageId:number;
   disabled:string;
@@ -47,8 +44,9 @@ export class CatCardComponent implements OnInit {
     private apiService: CatstagramApiService,
     
     ){
+      this.catPost=this.catPost;
       this.imageId=0;
-      this.cat=this.cat;
+      
       this.disabled="false";
     
       // iconRegistry.addSvgIcon(
@@ -59,13 +57,24 @@ export class CatCardComponent implements OnInit {
       'thumbs-up',
         sanitizer.bypassSecurityTrustResourceUrl('assets/icons/thumbup-icon.svg'));
      
-      this.apiService.getPosts().subscribe((receivedPosts)=>{
-        this.cat = receivedPosts;
-        // console.log(this.cat[this.id]);
-        // console.log(this.id)
-      });
+      // this.apiService.getPosts().subscribe((receivedPosts)=>{
+      //   this.cat = receivedPosts;
+      //   // console.log(this.cat[this.id]);
+      //   // console.log(this.id)
+      // });
   }
-  
+  ngOnInit() { }
+
+  @Input() catPost={
+    "id":this.id,
+    "mainImage":this.mainImage,
+    "headerImage":this.headerImage,
+    "title":this.title,
+    "subtitle":this.subtitle,
+    "description":this.description,
+    "like":this.like
+  };
+
   onClick(cat:Cats){
     const dialogRef = this.dialog.open(CatDetailsComponent,
      {
@@ -98,7 +107,7 @@ export class CatCardComponent implements OnInit {
     }
 
     update(){
-      var post = {
+      var catPost = {
         "id":this.id,
         "mainImage":this.mainImage,
         "headerImage":this.headerImage,
@@ -107,7 +116,7 @@ export class CatCardComponent implements OnInit {
         "description":this.description,
         "like":this.like
       }
-      this.apiService.updatePost(post,this.cat[0].id).subscribe((res)=>{
+      this.apiService.updatePost(catPost,this.catPost.id).subscribe((res)=>{
         console.log("Post Updated.")
       });
     }
@@ -133,11 +142,5 @@ export class CatCardComponent implements OnInit {
         console.log("Image saved");
       });
     }
-    ngOnInit() {
-      
-      
-  
-    }
-
-}
+  }
 
