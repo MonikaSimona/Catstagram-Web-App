@@ -15,3 +15,7 @@ class PostComments{
     photoUrl: string;
     comment: string;
 }
+class SavedImages{
+    id:number;
+    mainImage:string;
+}

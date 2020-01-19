@@ -4,5 +4,6 @@
 <br>
 <br>
 <div style="margin-left: 100px;">
- <img *ngFor="let image of images" class="savedImage" [src]="image" alt="Photo of a Selfie Cat" >
+ <img *ngFor="let image of images" class="savedImage" [src]="image.mainImage" (click)="delete(image)" title="Click Image to delete" >
+ 
 </div>

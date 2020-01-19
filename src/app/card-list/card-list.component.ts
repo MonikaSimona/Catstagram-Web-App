@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./card-list.component.css']
 })
 export class CardListComponent implements OnInit {
-  cats:Cats[] = [];
+  cats:Cats[]=[];
   
 
   

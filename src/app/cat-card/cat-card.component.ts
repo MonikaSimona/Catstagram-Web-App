@@ -1,3 +1,4 @@
+import { CardListComponent } from './../card-list/card-list.component';
 
 import { cats } from './../../registered-cats';
 import { CatDetailsComponent } from './../cat-details/cat-details.component';
@@ -8,6 +9,7 @@ import { MatDialog } from '@angular/material';
 import { CatstagramApiService } from './../catstagram-api.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
+
 import * as _swal from 'sweetalert';
 
 
@@ -24,6 +26,8 @@ import Swal from 'sweetalert2';
 })
 export class CatCardComponent implements OnInit {
   cats:Cats[]=[];
+  
+  
   @Input() id: number;
   // @Output() id:number;
   @Input() mainImage:string;
@@ -34,7 +38,7 @@ export class CatCardComponent implements OnInit {
   @Input() like:number;
   @Input() cat:Cats[]=[];
   
-  
+  imageId:number;
   disabled:string;
   numLikes:number;
   
@@ -43,7 +47,7 @@ export class CatCardComponent implements OnInit {
     private apiService: CatstagramApiService,
     
     ){
-
+      this.imageId=0;
       this.cat=this.cat;
       this.disabled="false";
     
@@ -119,8 +123,15 @@ export class CatCardComponent implements OnInit {
         showConfirmButton:false,
         heightAuto:false
       });
-
-      this.apiService.saveImage(this.mainImage);
+      this.imageId=this.imageId+1;
+      
+      var image = {
+        "id":this.imageId,
+        "mainImage":this.mainImage
+      }
+      this.apiService.saveImage(image).subscribe((res)=>{
+        console.log("Image saved");
+      });
     }
     ngOnInit() {
       

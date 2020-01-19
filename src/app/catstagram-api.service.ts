@@ -27,15 +27,31 @@ export class CatstagramApiService {
     return this.http.put(`http://5e00dea0685ac80014514fa8.mockapi.io/api/cats/posts/${postId}`,post);
     
   }
+  getImages():Observable<SavedImages[]>{
+    
+    return this.http.get<SavedImages[]>('https://5e246f16c5fc8f001465d13e.mockapi.io/images/images');
+  }
+
+  saveImage(image:SavedImages){
+    
+    return this.http.post(`https://5e246f16c5fc8f001465d13e.mockapi.io/images/images`,image);
+    
+  }
+  deleteImages(imageId:number){
+    console.log(imageId);
+    return this.http.delete(`https://5e246f16c5fc8f001465d13e.mockapi.io/images/images/${imageId}`);
+  
+  }
+  
   
 
-  saveImage(mainImage){
+  // saveImage(mainImage){
     
-    this.images.push(mainImage);
-  }
-  getImages(){
-    return this.images;
-  }
+  //   this.images.push(mainImage);
+  // }
+  // getImages(){
+  //   return this.images;
+  // }
  
   // saveLikes(like){
   //   this.likes.push(like);

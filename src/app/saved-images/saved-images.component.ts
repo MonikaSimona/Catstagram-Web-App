@@ -7,17 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./saved-images.component.css']
 })
 export class SavedImagesComponent implements OnInit {
-images;
+images:SavedImages []=[];
+image:SavedImages;
+
   constructor(
     private apiService : CatstagramApiService
   ) {
-    this.images = this.apiService.getImages();
+    this.apiService.getImages().subscribe((receivedImages)=>{
+      this.images=receivedImages;
+    })
 
 
    }
+   delete(image){
+     this.image=image;
+     this.apiService.deleteImages(this.image.id).subscribe();
+     this.images.pop();
+   }
 
   ngOnInit() {
-    this.images = this.apiService.getImages();
+    
   }
 
 }
