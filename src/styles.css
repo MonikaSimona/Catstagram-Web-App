@@ -40,7 +40,7 @@ mat-toolbar-row {
     justify-content: unset;
     align-items: center;
     overflow: hidden;
-    background-color: #ff8800;
+    background-color: #f44336;
     z-index: 1;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; 
