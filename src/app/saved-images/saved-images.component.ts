@@ -28,7 +28,6 @@ del : SavedImages[]=[];
    delete(image){
     Swal.fire({
       text:"Deleted!",
-      //padding:50,
       width:400,
       timer:500,
       showConfirmButton:false,

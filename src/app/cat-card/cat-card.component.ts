@@ -49,19 +49,12 @@ export class CatCardComponent implements OnInit {
       
       this.disabled="false";
     
-      // iconRegistry.addSvgIcon(
-      //   'paw-print-black',
-      //   sanitizer.bypassSecurityTrustResourceUrl('assets/img/pawprint-black.svg'));
-
+      
       iconRegistry.addSvgIcon(
       'thumbs-up',
         sanitizer.bypassSecurityTrustResourceUrl('assets/icons/thumbup-icon.svg'));
      
-      // this.apiService.getPosts().subscribe((receivedPosts)=>{
-      //   this.cat = receivedPosts;
-      //   // console.log(this.cat[this.id]);
-      //   // console.log(this.id)
-      // });
+     
   }
   ngOnInit() { }
 
@@ -89,15 +82,7 @@ export class CatCardComponent implements OnInit {
     });
 
     }
-    // numberOfLikes(){
-
-    //   this.numLikes = 0;
-    //   this.apiService.saveLikes(this.numLikes);
-    //   this.numLikes = this.apiService.getLikes();
-
-    //   this.disabled="true";
-      
-    // }
+  
     numberOfLikes(){
       
       
@@ -126,7 +111,6 @@ export class CatCardComponent implements OnInit {
 
       Swal.fire({
         text:"Saved!",
-        //padding:50,
         width:400,
         timer:500,
         showConfirmButton:false,

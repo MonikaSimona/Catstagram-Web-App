@@ -41,11 +41,12 @@ export class CatDetailsComponent implements OnInit {
     };
    
     
-    console.log(this.data.clickedPost.id);
+    
    
 
     this.apiService.getPostComments(this.data.clickedPost.id)
     .subscribe((comments)=>{this.postComments = comments;});
+    
 
 
    }
@@ -53,7 +54,7 @@ export class CatDetailsComponent implements OnInit {
 
       this.apiService.postComment(this.data.clickedPost.id,this.newComment)
       .subscribe(()=>{console.log("Posted new comment");});
-
+        
       this.newComment.comment='';
       
     }
